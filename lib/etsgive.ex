@@ -5,10 +5,7 @@ defmodule EtsGive do
     import Supervisor.Spec, warn: false
 
     children = [
-      # 先にServerプロセスを作成
       worker(EtsGive.Server, []),
-      # Managerプロセスの中にETSテーブルを作成して，
-      # ServerにOwnerを変更
       worker(EtsGive.Manager, [])
     ]
 

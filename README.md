@@ -1,12 +1,9 @@
 # EtsGive
 
-## 概要
+Inspiration 
 
-`https://github.com/DeadZen/etsgive` このレポジトリのElixirバージョンで,
-Managerプロセスは起動された後に`ETS`テーブルを作成して、自分が`heir`だと設定した後に、すぐowner権限をServerプロセスに`give_away`, Serverプロセスが死んだらownerは再びManagerに戻る、スーパーバイザーがServerプロセスを再起動したあと、Managerが再度ownerをSrvに譲る。
+`https://github.com/DeadZen/etsgive` 
 
-
-ETSテーブルの`give_away`関数の使い方
 
 ```
 $ iex -S mix 
@@ -15,18 +12,18 @@ iex(2)> EtsGive.Server.check
 iex(3)> table id: 245784, data: [count: 0]
 
 nil
-iex(8)> EtsGive.Server.count
+iex(8)> EtsGive.Server.inc
 Counter: 1
 :ok
-iex(9)> EtsGive.Server.count
+iex(9)> EtsGive.Server.inc
 :ok
 Counter: 2
-iex(10)> EtsGive.Server.count
+iex(10)> EtsGive.Server.inc
 Counter: 3
 :ok
 iex(11)> EtsGive.Server.die # Serverが死ぬ
 :ok
-iex(13)> EtsGive.Server.count
+iex(13)> EtsGive.Server.inc
 Counter: 4
 :ok
 ```
